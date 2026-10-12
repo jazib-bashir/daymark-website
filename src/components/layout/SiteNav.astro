@@ -5,28 +5,50 @@ import Button from './Button.astro';
 import { withBase } from '../../utils/withBase';
 
 const hasDownload = Boolean(site.downloadUrl);
+const ctaHref = hasDownload ? site.downloadUrl : '#download';
 ---
 
-<header class="nav">
+<header class="nav" id="site-nav">
 	<div class="nav-inner">
 		<a href={withBase('/')} aria-label="Daymark home">
 			<Brand />
 		</a>
-		<nav aria-label="Main navigation">
+		<nav class="nav-links" aria-label="Main navigation">
 			{navLinks.map((link) => (
 				<a href={link.href}>{link.label}</a>
 			))}
 		</nav>
-		{
-			hasDownload ? (
-				<Button kind="light" href={site.downloadUrl} showArrow>
-					{site.downloadLabel}
-				</Button>
-			) : (
-				<Button kind="light" href="#download" showArrow>
-					{site.downloadLabel}
-				</Button>
-			)
-		}
+		<details class="nav-drawer">
+			<summary aria-label="Open menu">
+				<span class="nav-drawer__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+			</summary>
+			<nav aria-label="Mobile navigation">
+				{navLinks.map((link) => (
+					<a href={link.href}>{link.label}</a>
+				))}
+				<a href="#download">Download</a>
+			</nav>
+		</details>
+		<Button kind="light" href={ctaHref} showArrow>
+			{site.downloadLabel}
+		</Button>
 	</div>
 </header>
+
+<script>
+	const nav = document.getElementById('site-nav');
+	if (nav) {
+		const update = () => {
+			nav.classList.toggle('is-scrolled', window.scrollY > 8);
+		};
+		update();
+		window.addEventListener('scroll', update, { passive: true });
+
+		nav.querySelectorAll('.nav-drawer a').forEach((link) => {
+			link.addEventListener('click', () => {
+				const drawer = nav.querySelector('.nav-drawer');
+				if (drawer instanceof HTMLDetailsElement) drawer.open = false;
+			});
+		});
+	}
+</script>

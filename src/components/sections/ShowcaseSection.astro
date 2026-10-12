@@ -1,49 +1,66 @@
 ---
-import type { Screen } from '../../data/site';
+import type { Screen, ShowcaseLayout } from '../../data/site';
 import Icon from '../layout/Icon.astro';
 import ProductFrame from '../app/ProductFrame.astro';
 
 interface Props {
 	id: string;
-	eyebrow: string;
+	step: string;
+	verb: string;
+	category: string;
 	title: string;
 	copy: string;
 	bullets: string[];
 	screen: Screen;
-	layout?: 'wide' | 'split' | 'feature';
+	layout?: ShowcaseLayout;
+	tone?: 'default' | 'soft' | 'dark';
 	image?: string;
 	imageAlt?: string;
 }
 
 const {
 	id,
-	eyebrow,
+	step,
+	verb,
+	category,
 	title,
 	copy,
 	bullets,
 	screen,
-	layout = 'wide',
+	layout = 'media-end',
+	tone = 'default',
 	image,
 	imageAlt,
 } = Astro.props;
+
+const sectionClass = [
+	'showcase',
+	`showcase--${layout}`,
+	tone !== 'default' ? `showcase--${tone}` : '',
+].filter(Boolean).join(' ');
+
+const eyebrow = `${step} · ${verb.toUpperCase()}`;
 ---
 
-<section class={`showcase ${layout}`} id={id}>
-	<div class="section-shell">
+<section class={sectionClass} id={id}>
+	<div class="section-shell showcase-grid">
 		<div class="showcase-copy">
 			<p class="eyebrow">{eyebrow}</p>
+			<p class="showcase-category">{category}</p>
 			<h2>{title}</h2>
-			<p>{copy}</p>
-			<ul>
-				{
-					bullets.map((bullet) => (
-						<li>
-							<Icon name="check" size={15} />
-							{bullet}
-						</li>
-					))
-				}
-			</ul>
+			<p class="showcase-desc">{copy}</p>
+			{
+				bullets.length > 0 && (
+					<ul class="showcase-benefits">
+						{bullets.map((bullet) => (
+							<li>
+								<Icon name="check" size={15} />
+								{bullet}
+							</li>
+						))}
+					</ul>
+				)
+			}
 		</div>
 		<div class="showcase-window">
 			<ProductFrame screen={screen} image={image} imageAlt={imageAlt} />

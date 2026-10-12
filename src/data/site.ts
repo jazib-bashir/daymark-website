@@ -32,21 +32,29 @@ export const footerLinks = [
 
 export type Screen = 'dashboard' | 'planning' | 'context' | 'project' | 'locker' | 'settings';
 
+/** media-end: copy left, product right · media-start: product left, copy right · feature: emphasized Work Context */
+export type ShowcaseLayout = 'media-end' | 'media-start' | 'feature';
+
 export const showcases: {
 	id: string;
-	eyebrow: string;
+	step: string;
+	verb: string;
+	category: string;
 	title: string;
 	copy: string;
 	bullets: string[];
 	screen: Screen;
-	layout: 'wide' | 'split' | 'feature';
+	layout: ShowcaseLayout;
+	tone?: 'default' | 'soft' | 'dark';
 	/** Drop a real PNG/WebP into public/images/screenshots/ and set this path to use it instead of the HTML mock. */
 	image?: string;
 	imageAlt?: string;
 }[] = [
 	{
 		id: 'projects',
-		eyebrow: '01 · PROJECTS',
+		step: '01',
+		verb: 'Organize',
+		category: 'Projects',
 		title: 'Everything about a project, in one place.',
 		copy: 'Links, environments, references, notes, goals, and tasks remain connected to the project they belong to.',
 		bullets: [
@@ -55,12 +63,15 @@ export const showcases: {
 			'Notes capture what the README does not',
 		],
 		screen: 'project',
-		layout: 'split',
+		layout: 'media-end',
+		tone: 'default',
 		// image: '/images/screenshots/project-atlas.png',
 	},
 	{
 		id: 'planning',
-		eyebrow: '02 · PLANNING',
+		step: '02',
+		verb: 'Prioritize',
+		category: 'Planning',
 		title: 'Know what matters today.',
 		copy: 'Shape weekly and monthly goals, set priorities and due dates, then see a focused view of the work that needs your attention now.',
 		bullets: [
@@ -69,13 +80,16 @@ export const showcases: {
 			'A focused dashboard for today',
 		],
 		screen: 'planning',
-		layout: 'wide',
+		layout: 'media-start',
+		tone: 'soft',
 		// image: '/images/screenshots/planning.png',
 	},
 	{
 		id: 'context',
-		eyebrow: '03 · WORK CONTEXT',
-		title: 'Return with your context intact.',
+		step: '03',
+		verb: 'Resume',
+		category: 'Work Context',
+		title: 'Pick up where you left off.',
 		copy: 'Every task keeps the trail of progress, decisions, blockers, journal history, and the next action waiting for you.',
 		bullets: [
 			'Record progress without starting a timer',
@@ -88,16 +102,19 @@ export const showcases: {
 	},
 	{
 		id: 'locker',
-		eyebrow: '04 · LOCKER',
+		step: '04',
+		verb: 'Protect',
+		category: 'Locker',
 		title: 'Keep sensitive information separate.',
 		copy: 'Credentials and environment variables live apart from ordinary project details in a locally stored, encrypted vault.',
 		bullets: [
 			'Masked by default',
 			'Grouped by project',
-			'Fictional values shown in this preview',
+			'Kept apart from ordinary project notes',
 		],
 		screen: 'locker',
-		layout: 'split',
+		layout: 'media-end',
+		tone: 'default',
 		// image: '/images/screenshots/locker.png',
 	},
 ];

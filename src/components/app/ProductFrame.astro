@@ -26,8 +26,9 @@ const alt = imageAlt ?? `Daymark ${screen} screenshot`;
 				alt={alt}
 				loading={hero ? 'eager' : 'lazy'}
 				decoding="async"
-				width="1280"
-				height="800"
+				width="1440"
+				height="900"
+				sizes="(max-width: 900px) 100vw, min(860px, 58vw)"
 			/>
 		</figure>
 	) : (

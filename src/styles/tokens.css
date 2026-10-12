@@ -20,6 +20,7 @@
 	--radius-lg: 9px;
 
 	--section-max: 1280px;
+	--nav-height: 72px;
 	--transition-fast: 200ms ease;
 
 	--focus-ring: 0 0 0 3px rgba(89, 86, 217, 0.35);
