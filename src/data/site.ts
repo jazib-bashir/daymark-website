@@ -8,11 +8,13 @@ export const site = {
 	tagline: 'Switch projects. Not your train of thought.',
 	description:
 		'Daymark is a local-first desktop workspace that keeps project context, priorities, progress, decisions, blockers, and next actions ready when you return.',
-	/** macOS download URL — leave empty until the release is public */
-	downloadUrl: '' as string,
+	/** macOS download — GitHub Releases asset (direct .dmg) */
+	downloadUrl:
+		'https://github.com/jazib-bashir/daymark-website/releases/download/v0.1.0/Daymark_0.1.0_x64.dmg',
 	downloadLabel: 'Get Daymark',
 	downloadComingSoonLabel: 'Coming soon',
-	downloadNote: 'Private preview · Desktop application',
+	downloadNote: 'macOS · Daymark 0.1.0',
+	downloadFileName: 'Daymark_0.1.0_x64.dmg',
 	/** Optional: set when a custom domain is connected (also update CI ASTRO_SITE / ASTRO_BASE). */
 	customDomain: '' as string,
 } as const;
@@ -32,53 +34,43 @@ export const footerLinks = [
 
 export type Screen = 'dashboard' | 'planning' | 'context' | 'project' | 'locker' | 'settings';
 
-/** media-end: copy left, product right · media-start: product left, copy right · feature: emphasized Work Context */
-export type ShowcaseLayout = 'media-end' | 'media-start' | 'feature';
+/** Editorial showcase layouts for the four-feature product story. */
+export type FeatureLayout = 'media-end' | 'media-start' | 'featured';
+export type FeatureTone = 'light' | 'soft' | 'dark';
 
-export const showcases: {
+/**
+ * Order: Organize → Prioritize → Resume → Protect.
+ */
+export const features: {
 	id: string;
-	step: string;
 	verb: string;
 	category: string;
 	title: string;
 	copy: string;
-	bullets: string[];
 	screen: Screen;
-	layout: ShowcaseLayout;
-	tone?: 'default' | 'soft' | 'dark';
+	layout: FeatureLayout;
+	tone: FeatureTone;
 	/** Drop a real PNG/WebP into public/images/screenshots/ and set this path to use it instead of the HTML mock. */
 	image?: string;
 	imageAlt?: string;
 }[] = [
 	{
 		id: 'projects',
-		step: '01',
 		verb: 'Organize',
 		category: 'Projects',
 		title: 'Everything about a project, in one place.',
-		copy: 'Links, environments, references, notes, goals, and tasks remain connected to the project they belong to.',
-		bullets: [
-			'Project links and environments stay close',
-			'Goals and tasks share the same project context',
-			'Notes capture what the README does not',
-		],
+		copy: 'Links, environments, notes, goals, and tasks stay connected to the project they belong to.',
 		screen: 'project',
 		layout: 'media-end',
-		tone: 'default',
+		tone: 'light',
 		// image: '/images/screenshots/project-atlas.png',
 	},
 	{
 		id: 'planning',
-		step: '02',
 		verb: 'Prioritize',
 		category: 'Planning',
 		title: 'Know what matters today.',
-		copy: 'Shape weekly and monthly goals, set priorities and due dates, then see a focused view of the work that needs your attention now.',
-		bullets: [
-			'Weekly and monthly goals',
-			'Priorities, due dates, and progress',
-			'A focused dashboard for today',
-		],
+		copy: 'Set weekly goals and due dates, then focus on the work that needs attention now.',
 		screen: 'planning',
 		layout: 'media-start',
 		tone: 'soft',
@@ -86,35 +78,24 @@ export const showcases: {
 	},
 	{
 		id: 'context',
-		step: '03',
 		verb: 'Resume',
 		category: 'Work Context',
 		title: 'Pick up where you left off.',
-		copy: 'Every task keeps the trail of progress, decisions, blockers, journal history, and the next action waiting for you.',
-		bullets: [
-			'Record progress without starting a timer',
-			'Separate decisions from blockers',
-			'Leave a clear next action for future-you',
-		],
+		copy: 'Progress, decisions, blockers, and the next action stay with the task—ready when you return.',
 		screen: 'context',
-		layout: 'feature',
+		layout: 'featured',
+		tone: 'dark',
 		// image: '/images/screenshots/work-context.png',
 	},
 	{
 		id: 'locker',
-		step: '04',
 		verb: 'Protect',
 		category: 'Locker',
 		title: 'Keep sensitive information separate.',
-		copy: 'Credentials and environment variables live apart from ordinary project details in a locally stored, encrypted vault.',
-		bullets: [
-			'Masked by default',
-			'Grouped by project',
-			'Kept apart from ordinary project notes',
-		],
+		copy: 'Credentials and environment variables live in a local encrypted vault, apart from ordinary notes.',
 		screen: 'locker',
 		layout: 'media-end',
-		tone: 'default',
+		tone: 'light',
 		// image: '/images/screenshots/locker.png',
 	},
 ];

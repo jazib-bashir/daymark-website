@@ -26,10 +26,21 @@ const ctaHref = hasDownload ? site.downloadUrl : '#download';
 				{navLinks.map((link) => (
 					<a href={link.href}>{link.label}</a>
 				))}
-				<a href="#download">Download</a>
+				<a
+					href={ctaHref}
+					{...(hasDownload
+						? {
+								rel: 'noopener noreferrer',
+								download: site.downloadFileName,
+								'data-download': '',
+							}
+						: {})}
+				>
+					Download
+				</a>
 			</nav>
 		</details>
-		<Button kind="light" href={ctaHref} showArrow>
+		<Button kind="light" href={ctaHref} download={hasDownload} showArrow>
 			{site.downloadLabel}
 		</Button>
 	</div>

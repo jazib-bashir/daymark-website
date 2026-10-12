@@ -1,0 +1,46 @@
+---
+import { features } from '../../data/site';
+import ProductFrame from '../app/ProductFrame.astro';
+---
+
+<section class="features-lead" id="features">
+	<div class="section-shell">
+		<p class="eyebrow">ORGANIZE · PRIORITIZE · RESUME · PROTECT</p>
+		<h2>From a project’s details<br />to the next line of work.</h2>
+		<p>
+			Daymark connects project knowledge, daily priorities, work context, and a separate
+			Locker—so switching projects doesn’t mean reconstructing your place in the work.
+		</p>
+	</div>
+</section>
+
+{
+	features.map((feature) => (
+		<section
+			class:list={[
+				'feature-row',
+				`feature-row--${feature.layout}`,
+				`feature-row--${feature.tone}`,
+			]}
+			id={feature.id}
+		>
+			<div class="section-shell feature-row__grid">
+				<div class="feature-row__copy">
+					<p class="eyebrow">
+						{feature.verb.toUpperCase()}
+						<span class="feature-row__category"> · {feature.category}</span>
+					</p>
+					<h2>{feature.title}</h2>
+					<p class="feature-row__desc">{feature.copy}</p>
+				</div>
+				<div class="feature-row__visual" data-screen={feature.screen}>
+					<ProductFrame
+						screen={feature.screen}
+						image={feature.image}
+						imageAlt={feature.imageAlt ?? `${feature.category}: ${feature.title}`}
+					/>
+				</div>
+			</div>
+		</section>
+	))
+}

@@ -15,7 +15,7 @@ const hasDownload = Boolean(site.downloadUrl);
 		<div class="cta-side">
 			{
 				hasDownload ? (
-					<Button href={site.downloadUrl} showArrow>
+					<Button href={site.downloadUrl} download showArrow>
 						{site.downloadLabel}
 					</Button>
 				) : (

@@ -1,4 +1,5 @@
 ---
+import { site } from '../../data/site';
 import Icon from './Icon.astro';
 
 interface Props {
@@ -6,6 +7,8 @@ interface Props {
 	href?: string;
 	disabled?: boolean;
 	showArrow?: boolean;
+	/** When true, treat the link as a file download destination. */
+	download?: boolean;
 	class?: string;
 }
 
@@ -14,15 +17,28 @@ const {
 	href,
 	disabled = false,
 	showArrow = false,
+	download = false,
 	class: className = '',
 } = Astro.props;
 
 const classes = ['button', kind, className].filter(Boolean).join(' ');
+const isExternal = Boolean(href && /^https?:\/\//.test(href));
+const isDownload = download || (isExternal && href === site.downloadUrl);
 ---
 
 {
 	href && !disabled ? (
-		<a class={classes} href={href}>
+		<a
+			class={classes}
+			href={href}
+			{...(isExternal ? { rel: 'noopener noreferrer' } : {})}
+			{...(isDownload
+				? {
+						download: site.downloadFileName,
+						'data-download': '',
+					}
+				: {})}
+		>
 			<slot />
 			{showArrow && <Icon name="arrow" size={14} />}
 		</a>

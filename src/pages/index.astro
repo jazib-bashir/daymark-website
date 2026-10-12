@@ -4,11 +4,9 @@ import SiteNav from '../components/layout/SiteNav.astro';
 import SiteFooter from '../components/layout/SiteFooter.astro';
 import Hero from '../components/sections/Hero.astro';
 import ProblemSection from '../components/sections/ProblemSection.astro';
-import ProductLead from '../components/sections/ProductLead.astro';
-import ShowcaseSection from '../components/sections/ShowcaseSection.astro';
+import Features from '../components/sections/Features.astro';
 import PrivacySection from '../components/sections/PrivacySection.astro';
 import FinalCta from '../components/sections/FinalCta.astro';
-import { showcases } from '../data/site';
 ---
 
 <BaseLayout>
@@ -17,8 +15,7 @@ import { showcases } from '../data/site';
 		<main>
 			<Hero />
 			<ProblemSection />
-			<ProductLead />
-			{showcases.map((item) => <ShowcaseSection {...item} />)}
+			<Features />
 			<PrivacySection />
 			<FinalCta />
 		</main>

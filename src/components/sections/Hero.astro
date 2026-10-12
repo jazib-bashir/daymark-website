@@ -22,7 +22,7 @@ const hasDownload = Boolean(site.downloadUrl);
 			<div class="hero-actions">
 				{
 					hasDownload ? (
-						<Button href={site.downloadUrl} showArrow>
+						<Button href={site.downloadUrl} download showArrow>
 							{site.downloadLabel}
 						</Button>
 					) : (
