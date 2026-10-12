@@ -1,0 +1,55 @@
+---
+import ScreenTitle from './ScreenTitle.astro';
+---
+
+<ScreenTitle
+	eyebrow="MONDAY, OCTOBER 14"
+	title="Good afternoon"
+	copy="Here’s where your attention matters today."
+	action="+ New task"
+/>
+<div class="dashboard-layout">
+	<div>
+		<h4>Today's priorities</h4>
+		<p class="muted">2 tasks · 0 overdue</p>
+		<div class="focus-task">
+			<i></i>
+			<div><b>Ship offline sync</b><span>Atlas · High priority</span></div>
+			<em>Resume →</em>
+		</div>
+		<div class="focus-task">
+			<i></i>
+			<div><b>Review release checklist</b><span>Relay · Due today</span></div>
+			<em>Open →</em>
+		</div>
+		<h4>This week's goals</h4>
+		<p class="muted">Week of 14 Oct</p>
+		<div class="goal-progress">
+			<div>
+				<b>Release offline sync</b>
+				<span>Atlas · 4 of 6 tasks</span>
+			</div>
+			<strong>68%</strong>
+		</div>
+	</div>
+	<aside>
+		<h4>Needs attention</h4>
+		<div class="attention"><i></i> Staging access expires Friday</div>
+		<h4>Projects</h4>
+		<div class="project-item">
+			<span>AT</span>
+			<b>Atlas<small>Updated today</small></b>
+			<i>3</i>
+		</div>
+		<div class="project-item">
+			<span>NS</span>
+			<b>Northstar<small>Updated yesterday</small></b>
+			<i>2</i>
+		</div>
+		<div class="project-item">
+			<span>RL</span>
+			<b>Relay<small>Updated 3 days ago</small></b>
+			<i>1</i>
+		</div>
+	</aside>
+</div>

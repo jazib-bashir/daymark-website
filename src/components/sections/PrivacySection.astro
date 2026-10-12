@@ -1,0 +1,44 @@
+---
+import Icon from '../layout/Icon.astro';
+import ProductFrame from '../app/ProductFrame.astro';
+---
+
+<section class="privacy" id="privacy">
+	<div class="section-shell">
+		<div class="privacy-copy">
+			<p class="eyebrow"><span></span> LOCAL-FIRST BY DESIGN</p>
+			<h2>Your workspace stays<br />on your device.</h2>
+			<p>
+				Daymark is a desktop workspace with local storage, explicit backups, and a separate
+				encrypted Locker for sensitive project data.
+			</p>
+			<div class="privacy-points">
+				<div>
+					<Icon name="database" />
+					<span>
+						<b>Local workspace storage</b>
+						<small>Project information is stored on your device.</small>
+					</span>
+				</div>
+				<div>
+					<Icon name="lock" />
+					<span>
+						<b>Encrypted Locker</b>
+						<small>Sensitive project values are kept in a separate vault.</small>
+					</span>
+				</div>
+				<div>
+					<Icon name="export" />
+					<span>
+						<b>Export & backup</b>
+						<small>Create a portable workspace backup when you choose.</small>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="privacy-window">
+			{/* When ready: image="/images/screenshots/settings-backup.png" */}
+			<ProductFrame screen="settings" />
+		</div>
+	</div>
+</section>

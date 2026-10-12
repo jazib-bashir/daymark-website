@@ -1,0 +1,36 @@
+---
+import type { Screen } from '../../data/site';
+import { withBase } from '../../utils/withBase';
+import AppWindow from './AppWindow.astro';
+
+/**
+ * Renders a real product screenshot when `image` is set,
+ * otherwise falls back to the HTML app-window mock from the approved design.
+ */
+interface Props {
+	screen: Screen;
+	hero?: boolean;
+	image?: string;
+	imageAlt?: string;
+}
+
+const { screen, hero = false, image, imageAlt } = Astro.props;
+const alt = imageAlt ?? `Daymark ${screen} screenshot`;
+---
+
+{
+	image ? (
+		<figure class:list={['product-shot', { 'product-shot--hero': hero }]}>
+			<img
+				src={withBase(image)}
+				alt={alt}
+				loading={hero ? 'eager' : 'lazy'}
+				decoding="async"
+				width="1280"
+				height="800"
+			/>
+		</figure>
+	) : (
+		<AppWindow screen={screen} hero={hero} />
+	)
+}

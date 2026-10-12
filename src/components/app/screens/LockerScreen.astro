@@ -1,0 +1,39 @@
+---
+import Icon from '../../layout/Icon.astro';
+import ScreenTitle from './ScreenTitle.astro';
+---
+
+<ScreenTitle
+	eyebrow="LOCKER"
+	title="Credentials & environment"
+	copy="Sensitive project data stays masked and separate from ordinary project information."
+	action="Lock locker"
+/>
+<div class="success-banner">
+	<Icon name="lock" size={14} />
+	<b>Locker unlocked</b>
+	<span>Secrets are available in memory until you lock again.</span>
+</div>
+<div class="locker-project">Atlas⌄</div>
+<div class="locker-panel">
+	<div class="locker-head">
+		<span>AT</span>
+		<b>Atlas<small>1 credential · 2 variables</small></b>
+	</div>
+	<div class="locker-columns">
+		<div>
+			<h4><Icon name="key" size={13} /> Credentials <span>+ Add</span></h4>
+			<div class="secret-card">
+				<b>Staging login</b>
+				<p>staging.atlas.example</p>
+				<div class="detail"><span>Username / email</span><b>developer@example.com</b></div>
+				<div class="detail"><span>Password</span><b>••••••••••••</b></div>
+			</div>
+		</div>
+		<div>
+			<h4>▱ Environment variables <span>+ Add</span></h4>
+			<div class="env-row"><b>ATLAS_API_URL</b><span>••••••••••••</span></div>
+			<div class="env-row"><b>SYNC_TEST_KEY</b><span>••••••••••••</span></div>
+		</div>
+	</div>
+</div>

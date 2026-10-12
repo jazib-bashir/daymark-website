@@ -1,0 +1,30 @@
+---
+import { site } from '../../data/site';
+import Button from '../layout/Button.astro';
+
+const hasDownload = Boolean(site.downloadUrl);
+---
+
+<section class="final-cta" id="download">
+	<div class="section-shell">
+		<div>
+			<p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p>
+			<h2>Spend less time remembering.<br />Get back to building.</h2>
+			<p>Keep your projects organized and your next step clear.</p>
+		</div>
+		<div class="cta-side">
+			{
+				hasDownload ? (
+					<Button href={site.downloadUrl} showArrow>
+						{site.downloadLabel}
+					</Button>
+				) : (
+					<Button disabled showArrow>
+						{site.downloadComingSoonLabel}
+					</Button>
+				)
+			}
+			<small>{site.downloadNote}</small>
+		</div>
+	</div>
+</section>

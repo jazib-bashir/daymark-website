@@ -1,0 +1,57 @@
+---
+import ScreenTitle from './ScreenTitle.astro';
+---
+
+<ScreenTitle
+	eyebrow="PLANNING"
+	title="Goals & tasks"
+	copy="Shape the work ahead without losing sight of today."
+	action="+ New goal"
+/>
+<div class="filter-row">
+	<span>This week</span>
+	<i>This month</i>
+	<i>All</i>
+	<b>Atlas⌄</b>
+</div>
+<div class="metrics">
+	<span><b>2</b> Active goals</span>
+	<span><b>4</b> Open tasks</span>
+	<span><b>0</b> Overdue</span>
+	<em>Weekly progress&nbsp; <b>62%</b></em>
+</div>
+<div class="planning-layout">
+	<div class="goal-card">
+		<small>WEEKLY · WEEK OF 14 OCT</small>
+		<h4>Release offline sync</h4>
+		<p><span>In progress</span> <b>High</b></p>
+		<div class="goal-head">
+			<small>TASK</small>
+			<small>DUE</small>
+			<small>STATUS</small>
+		</div>
+		<div class="task">
+			<i></i>
+			<div><b>Ship offline sync</b><span>18 Oct · Today</span></div>
+			<em>In progress</em>
+		</div>
+		<div class="task">
+			<i></i>
+			<div><b>Add conflict resolution states</b><span>21 Oct</span></div>
+			<em>In progress</em>
+		</div>
+	</div>
+	<div class="stack">
+		<div class="panel calendar-card">
+			<h4>October 2026</h4>
+			<div class="week">
+				<i>M</i><i>T</i><i>W</i><i>T</i><i>F</i><i>S</i><i>S</i>
+				<b>12</b><b>13</b><b class="today">14</b><b>15</b><b>16</b><b>17</b><b>18</b>
+			</div>
+		</div>
+		<div class="panel compact">
+			<h4>⚑ Today's focus</h4>
+			<p><i class="indigo-dot"></i> Ship offline sync</p>
+		</div>
+	</div>
+</div>

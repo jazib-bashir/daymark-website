@@ -1,0 +1,49 @@
+---
+import Icon from '../../layout/Icon.astro';
+import ScreenTitle from './ScreenTitle.astro';
+---
+
+<ScreenTitle
+	eyebrow="WORKSPACE SETTINGS"
+	title="Data & backup"
+	copy="Daymark stores this workspace locally on your device."
+/>
+<div class="success-banner">
+	<Icon name="database" size={14} />
+	<b>Workspace data is healthy</b>
+	<span>3 projects · 2 goals · 9 tasks · 12 journal entries</span>
+</div>
+<div class="settings-row">
+	<Icon name="export" />
+	<div>
+		<b>Export workspace</b>
+		<p>
+			Download a complete JSON backup of projects, goals, tasks, work context, journal history,
+			and the encrypted Locker vault.
+		</p>
+	</div>
+	<span>Export JSON</span>
+</div>
+<div class="settings-row">
+	<Icon name="database" />
+	<div>
+		<b>Import workspace</b>
+		<p>Restore from a Daymark JSON backup. Review the file before anything changes.</p>
+	</div>
+	<span>Choose file</span>
+</div>
+<h4 class="settings-label">Automatic protection</h4>
+<div class="settings-row simple">
+	<div>
+		<b>Remind me to export a backup</b>
+		<p>Show a gentle reminder when no backup has been created for 30 days.</p>
+	</div>
+	<i></i>
+</div>
+<div class="settings-row simple">
+	<div>
+		<b>Confirm before replacing data</b>
+		<p>Always show an import summary and require confirmation.</p>
+	</div>
+	<i class="on"></i>
+</div>

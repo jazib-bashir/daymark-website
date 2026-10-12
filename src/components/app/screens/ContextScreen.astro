@@ -1,0 +1,77 @@
+---
+import Icon from '../../layout/Icon.astro';
+import ScreenTitle from './ScreenTitle.astro';
+---
+
+<ScreenTitle
+	eyebrow="WORK CONTEXT · ATLAS"
+	title="Ship offline sync"
+	copy="Atlas · Desktop reliability"
+	action="Start work"
+/>
+<div class="context-grid">
+	<div>
+		<h4>Resume context</h4>
+		<p class="muted">Everything you need to pick up where you left off.</p>
+		<div class="next-action">
+			<span>→</span>
+			<div>
+				<small>NEXT ACTION</small>
+				<b>Run the conflict test suite, then review the merge log</b>
+			</div>
+			<Icon name="check" size={14} />
+		</div>
+		<div class="status-columns">
+			<div>
+				<b>Latest progress</b>
+				<p>Queue persists across restarts. Conflict fixtures are now passing locally.</p>
+			</div>
+			<div>
+				<b>Unresolved blockers</b>
+				<p>Waiting on a reproducible Windows file-lock case.</p>
+			</div>
+		</div>
+		<div class="journal">
+			<h4>Work journal</h4>
+			<p class="muted">Progress, decisions, blockers, and notes stay with the task.</p>
+			<div class="journal-input">What changed? What should future-you know?</div>
+			<div class="journal-tabs">
+				<span>Progress</span>
+				<i>Decision</i>
+				<i>Blocker</i>
+				<i>Note</i>
+				<b>Add entry</b>
+			</div>
+			<div class="journal-row">
+				<i></i>
+				<p><small>Decision · Today</small><br />Keep merge resolution deterministic and local.</p>
+			</div>
+			<div class="journal-row warn">
+				<i></i>
+				<p><small>Blocker · Today</small><br />Windows file lock is not reproducible in CI.</p>
+			</div>
+			<div class="journal-row">
+				<i></i>
+				<p><small>Progress · Today</small><br />Added restart coverage for the offline queue.</p>
+			</div>
+		</div>
+	</div>
+	<aside class="details">
+		<h4>Task details</h4>
+		<div class="detail"><span>Status</span><b>In progress</b></div>
+		<div class="detail"><span>Priority</span><b>High</b></div>
+		<div class="detail"><span>Due</span><b>18 Oct</b></div>
+		<div class="detail"><span>Goal</span><b>Release offline sync</b></div>
+		<h4>Previous sessions</h4>
+		<p>
+			<small>TODAY · 09:42</small><br />
+			<b>Ship offline sync</b><br />
+			<span>3 journal entries</span>
+		</p>
+		<p>
+			<small>YESTERDAY · 16:18</small><br />
+			<b>Ship offline sync</b><br />
+			<span>2 journal entries</span>
+		</p>
+	</aside>
+</div>

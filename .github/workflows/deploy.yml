@@ -1,0 +1,53 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Required for OIDC + Pages deployment (do not use GITHUB_TOKEN to deploy).
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Registers the repo with GitHub Pages for Actions-based deploys (requires Pages enabled in repo settings).
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Install, build, and upload site
+        uses: withastro/action@v6
+        with:
+          node-version: 22
+          package-manager: npm@latest
+          out-dir: dist
+        env:
+          # Project Pages URL: https://jazib-bashir.github.io/daymark-website/
+          # When a custom domain is connected, set ASTRO_BASE=/ and ASTRO_SITE=https://your-domain
+          ASTRO_BASE: /daymark-website/
+          ASTRO_SITE: https://jazib-bashir.github.io/daymark-website
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

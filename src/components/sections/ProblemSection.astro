@@ -1,0 +1,55 @@
+---
+import Icon from '../layout/Icon.astro';
+---
+
+<section class="problem-section" id="problem">
+	<div class="section-shell">
+		<div class="problem-intro">
+			<p class="eyebrow">THE SWITCHING COST</p>
+			<h2>The work didn’t disappear.<br />The context did.</h2>
+			<p>
+				Moving between codebases is easy. Rebuilding the mental state around each one is the
+				expensive part.
+			</p>
+		</div>
+		<div class="fragments">
+			<div>
+				<span>01</span>
+				<p>Remembering where you left off.</p>
+			</div>
+			<div>
+				<span>02</span>
+				<p>Searching for the decision you made yesterday.</p>
+			</div>
+			<div>
+				<span>03</span>
+				<p>Reconstructing the next step after switching projects.</p>
+			</div>
+		</div>
+		<div class="context-transition">
+			<div class="loose-notes">
+				<span><small>NOTES.md</small>“Check the retry logic…”</span>
+				<span><small>ISSUE #184</small>Sync fails after restart</span>
+				<span><small>TERMINAL</small>3 tests still failing</span>
+			</div>
+			<div class="transition-arrow"><Icon name="arrow" size={20} /></div>
+			<div class="organized-context">
+				<div>
+					<small>ATLAS · IN PROGRESS</small>
+					<b>Ship offline sync</b>
+				</div>
+				<dl>
+					<dt>PROGRESS</dt>
+					<dd>Queue persists after restart.</dd>
+					<dt>BLOCKER</dt>
+					<dd>Windows file-lock case.</dd>
+					<dt>NEXT ACTION</dt>
+					<dd>Run conflict suite, review merge log.</dd>
+				</dl>
+			</div>
+		</div>
+		<p class="solution-line">
+			<span>Your work context, ready when you return.</span> No archaeology required.
+		</p>
+	</div>
+</section>

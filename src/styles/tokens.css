@@ -1,0 +1,26 @@
+:root {
+	--ink: #11121b;
+	--navy: #0c0e18;
+	--navy-2: #131625;
+	--paper: #f7f8fb;
+	--surface: #ffffff;
+	--soft: #eef0f7;
+	--line: #dfe2ea;
+	--muted: #6d7282;
+	--indigo: #5956d9;
+	--indigo-2: #7773ef;
+	--indigo-soft: #eeeefe;
+	--green: #16a173;
+	--amber: #e9a008;
+
+	--font-body: 'Inter', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+	--radius-sm: 4px;
+	--radius-md: 7px;
+	--radius-lg: 9px;
+
+	--section-max: 1280px;
+	--transition-fast: 200ms ease;
+
+	--focus-ring: 0 0 0 3px rgba(89, 86, 217, 0.35);
+}

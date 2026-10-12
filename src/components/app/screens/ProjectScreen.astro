@@ -1,0 +1,62 @@
+---
+import Icon from '../../layout/Icon.astro';
+import ScreenTitle from './ScreenTitle.astro';
+---
+
+<ScreenTitle
+	eyebrow="PROJECT"
+	title="Atlas"
+	copy="Local-first desktop workspace"
+	action="+ New task"
+/>
+<div class="project-summary">
+	<div>
+		<small>PROJECT GOAL</small>
+		<h4>Release offline sync</h4>
+		<p>Make project state dependable across restarts and poor connections.</p>
+	</div>
+	<div class="project-meter">
+		<b>68%</b>
+		<span><i></i></span>
+		<small>4 of 6 tasks complete</small>
+	</div>
+</div>
+<div class="project-layout">
+	<div class="panel">
+		<h4>Open tasks <span>3</span></h4>
+		<div class="task">
+			<i></i>
+			<div><b>Ship offline sync</b><span>High · Due 18 Oct</span></div>
+			<em>In progress</em>
+		</div>
+		<div class="task">
+			<i></i>
+			<div><b>Add conflict resolution states</b><span>Medium · Due 21 Oct</span></div>
+			<em>In progress</em>
+		</div>
+		<div class="task">
+			<i></i>
+			<div><b>Write upgrade notes</b><span>Low · Due 24 Oct</span></div>
+			<em>In progress</em>
+		</div>
+	</div>
+	<div class="stack">
+		<div class="panel compact">
+			<h4>Project links</h4>
+			<p><Icon name="link" size={12} /> Repository <span>atlas/desktop</span></p>
+			<p><Icon name="link" size={12} /> Staging <span>atlas.local</span></p>
+		</div>
+		<div class="panel compact">
+			<h4>Environments</h4>
+			<p><i class="green-dot"></i> Local</p>
+			<p><i class="amber-dot"></i> Staging</p>
+		</div>
+	</div>
+</div>
+<div class="panel notes">
+	<h4>Project notes</h4>
+	<p>
+		Sync writes to the local queue first. Keep conflict messages actionable and avoid hiding
+		file-level details.
+	</p>
+</div>

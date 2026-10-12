@@ -1,0 +1,57 @@
+---
+import type { Screen } from '../../data/site';
+import Brand from '../layout/Brand.astro';
+import AppNav from './AppNav.astro';
+import ContextScreen from './screens/ContextScreen.astro';
+import ProjectScreen from './screens/ProjectScreen.astro';
+import PlanningScreen from './screens/PlanningScreen.astro';
+import DashboardScreen from './screens/DashboardScreen.astro';
+import LockerScreen from './screens/LockerScreen.astro';
+import SettingsScreen from './screens/SettingsScreen.astro';
+
+interface Props {
+	screen: Screen;
+	hero?: boolean;
+}
+
+const { screen, hero = false } = Astro.props;
+---
+
+<div class:list={['app-window', { 'hero-window': hero }]} role="img" aria-label={`Daymark ${screen} view preview`}>
+	<div class="titlebar">
+		<span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+		<span>Daymark</span>
+	</div>
+	<div class="app-body">
+		<aside class="app-sidebar" aria-hidden="true">
+			<Brand />
+			<small>WORKSPACE</small>
+			<AppNav icon="dashboard" label="Dashboard" active={screen === 'dashboard'} />
+			<AppNav icon="calendar" label="Planning" active={screen === 'planning'} />
+			<AppNav icon="target" label="Work context" active={screen === 'context'} />
+			<AppNav icon="lock" label="Locker" active={screen === 'locker'} />
+			<small>PROJECTS <b>+ New</b></small>
+			<AppNav label="Atlas" active={screen === 'project'} dot />
+			<AppNav label="Northstar" dot />
+			<AppNav label="Relay" dot />
+			<div class="sidebar-bottom">
+				<AppNav icon="settings" label="Settings" active={screen === 'settings'} />
+				<span>▣ &nbsp; Stored locally</span>
+			</div>
+		</aside>
+		<div class="app-main">
+			<div class="app-top">
+				<span><i></i> Personal workspace</span>
+				<span class="saved"><i></i> Saved locally</span>
+			</div>
+			<div class="app-content">
+				{screen === 'context' && <ContextScreen />}
+				{screen === 'project' && <ProjectScreen />}
+				{screen === 'planning' && <PlanningScreen />}
+				{screen === 'dashboard' && <DashboardScreen />}
+				{screen === 'locker' && <LockerScreen />}
+				{screen === 'settings' && <SettingsScreen />}
+			</div>
+		</div>
+	</div>
+</div>

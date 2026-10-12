@@ -1,0 +1,40 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+	kind?: 'primary' | 'secondary' | 'light';
+	href?: string;
+	disabled?: boolean;
+	showArrow?: boolean;
+	class?: string;
+}
+
+const {
+	kind = 'primary',
+	href,
+	disabled = false,
+	showArrow = false,
+	class: className = '',
+} = Astro.props;
+
+const classes = ['button', kind, className].filter(Boolean).join(' ');
+---
+
+{
+	href && !disabled ? (
+		<a class={classes} href={href}>
+			<slot />
+			{showArrow && <Icon name="arrow" size={14} />}
+		</a>
+	) : disabled ? (
+		<span class={`${classes} is-disabled`} aria-disabled="true" role="link">
+			<slot />
+			{showArrow && <Icon name="arrow" size={14} />}
+		</span>
+	) : (
+		<a class={classes} href="#download">
+			<slot />
+			{showArrow && <Icon name="arrow" size={14} />}
+		</a>
+	)
+}

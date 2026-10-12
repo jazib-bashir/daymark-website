@@ -1,0 +1,32 @@
+---
+import { navLinks, site } from '../../data/site';
+import Brand from './Brand.astro';
+import Button from './Button.astro';
+import { withBase } from '../../utils/withBase';
+
+const hasDownload = Boolean(site.downloadUrl);
+---
+
+<header class="nav">
+	<div class="nav-inner">
+		<a href={withBase('/')} aria-label="Daymark home">
+			<Brand />
+		</a>
+		<nav aria-label="Main navigation">
+			{navLinks.map((link) => (
+				<a href={link.href}>{link.label}</a>
+			))}
+		</nav>
+		{
+			hasDownload ? (
+				<Button kind="light" href={site.downloadUrl} showArrow>
+					{site.downloadLabel}
+				</Button>
+			) : (
+				<Button kind="light" href="#download" showArrow>
+					{site.downloadLabel}
+				</Button>
+			)
+		}
+	</div>
+</header>

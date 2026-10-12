@@ -1,0 +1,52 @@
+---
+import type { Screen } from '../../data/site';
+import Icon from '../layout/Icon.astro';
+import ProductFrame from '../app/ProductFrame.astro';
+
+interface Props {
+	id: string;
+	eyebrow: string;
+	title: string;
+	copy: string;
+	bullets: string[];
+	screen: Screen;
+	layout?: 'wide' | 'split' | 'feature';
+	image?: string;
+	imageAlt?: string;
+}
+
+const {
+	id,
+	eyebrow,
+	title,
+	copy,
+	bullets,
+	screen,
+	layout = 'wide',
+	image,
+	imageAlt,
+} = Astro.props;
+---
+
+<section class={`showcase ${layout}`} id={id}>
+	<div class="section-shell">
+		<div class="showcase-copy">
+			<p class="eyebrow">{eyebrow}</p>
+			<h2>{title}</h2>
+			<p>{copy}</p>
+			<ul>
+				{
+					bullets.map((bullet) => (
+						<li>
+							<Icon name="check" size={15} />
+							{bullet}
+						</li>
+					))
+				}
+			</ul>
+		</div>
+		<div class="showcase-window">
+			<ProductFrame screen={screen} image={image} imageAlt={imageAlt} />
+		</div>
+	</div>
+</section>

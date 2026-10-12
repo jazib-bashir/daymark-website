@@ -1,0 +1,44 @@
+---
+import { site } from '../../data/site';
+import Button from '../layout/Button.astro';
+import ProductFrame from '../app/ProductFrame.astro';
+
+const hasDownload = Boolean(site.downloadUrl);
+---
+
+<section class="hero">
+	<div class="hero-grid" aria-hidden="true"></div>
+	<div class="section-shell hero-inner">
+		<div class="hero-copy">
+			<p class="eyebrow"><span></span> PRIVATE · LOCAL-FIRST · DESKTOP</p>
+			<h1>
+				Switch projects.<br />
+				<em>Not your train of thought.</em>
+			</h1>
+			<p>
+				Daymark keeps your project details, daily priorities, work notes, and next
+				actions together—so you can return to any task without reconstructing your context.
+			</p>
+			<div class="hero-actions">
+				{
+					hasDownload ? (
+						<Button href={site.downloadUrl} showArrow>
+							{site.downloadLabel}
+						</Button>
+					) : (
+						<Button href="#download" showArrow>
+							{site.downloadLabel}
+						</Button>
+					)
+				}
+				<Button kind="secondary" href="#problem">See how it works</Button>
+			</div>
+			<small>Built for the way developers actually move between projects.</small>
+		</div>
+		<div class="hero-product" id="product">
+			<div class="desktop-label"><i></i> DESKTOP APP · SAVED LOCALLY</div>
+			{/* When a real hero screenshot is ready: image="/images/screenshots/hero-work-context.png" */}
+			<ProductFrame screen="context" hero />
+		</div>
+	</div>
+</section>

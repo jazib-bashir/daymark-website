@@ -1,0 +1,17 @@
+---
+import { footerLinks } from '../../data/site';
+import Brand from './Brand.astro';
+import { withBase } from '../../utils/withBase';
+---
+
+<footer>
+	<div class="section-shell">
+		<a href={withBase('/')} aria-label="Daymark home"><Brand /></a>
+		<nav aria-label="Footer">
+			{footerLinks.map((link) => (
+				<a href={link.href}>{link.label}</a>
+			))}
+		</nav>
+		<span>Local-first project context.</span>
+	</div>
+</footer>

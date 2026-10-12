@@ -1,0 +1,17 @@
+---
+import Icon from '../layout/Icon.astro';
+
+interface Props {
+	icon?: string;
+	label: string;
+	active?: boolean;
+	dot?: boolean;
+}
+
+const { icon, label, active = false, dot = false } = Astro.props;
+---
+
+<div class:list={['app-nav', { active }]}>
+	{icon ? <Icon name={icon} size={13} /> : dot ? <i class="project-dot"></i> : null}
+	<span>{label}</span>
+</div>

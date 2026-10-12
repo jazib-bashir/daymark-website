@@ -1,0 +1,100 @@
+---
+interface Props {
+	name: string;
+	size?: number;
+	class?: string;
+}
+
+const { name, size = 16, class: className = '' } = Astro.props;
+const stroke = 1.7;
+---
+
+<svg
+	class={className}
+	aria-hidden="true"
+	width={size}
+	height={size}
+	viewBox="0 0 24 24"
+	fill="none"
+	stroke="currentColor"
+	stroke-width={stroke}
+	stroke-linecap="round"
+	stroke-linejoin="round"
+>
+	{
+		name === 'dashboard' && (
+			<>
+				<rect x="3" y="3" width="7" height="7" rx="1" />
+				<rect x="14" y="3" width="7" height="7" rx="1" />
+				<rect x="3" y="14" width="7" height="7" rx="1" />
+				<rect x="14" y="14" width="7" height="7" rx="1" />
+			</>
+		)
+	}
+	{
+		name === 'calendar' && (
+			<>
+				<rect x="3" y="5" width="18" height="16" rx="2" />
+				<path d="M16 3v4M8 3v4M3 10h18" />
+			</>
+		)
+	}
+	{
+		name === 'target' && (
+			<>
+				<circle cx="12" cy="12" r="9" />
+				<circle cx="12" cy="12" r="3" />
+			</>
+		)
+	}
+	{
+		name === 'lock' && (
+			<>
+				<rect x="5" y="10" width="14" height="11" rx="2" />
+				<path d="M8 10V7a4 4 0 0 1 8 0v3" />
+			</>
+		)
+	}
+	{
+		name === 'settings' && (
+			<>
+				<circle cx="12" cy="12" r="3" />
+				<path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z" />
+			</>
+		)
+	}
+	{name === 'arrow' && <path d="M5 12h14M14 7l5 5-5 5" />}
+	{name === 'check' && <path d="m5 12 4 4L19 6" />}
+	{
+		name === 'database' && (
+			<>
+				<ellipse cx="12" cy="5" rx="8" ry="3" />
+				<path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" />
+			</>
+		)
+	}
+	{
+		name === 'export' && (
+			<>
+				<path d="M12 3v12M8 7l4-4 4 4" />
+				<path d="M5 14v6h14v-6" />
+			</>
+		)
+	}
+	{
+		name === 'key' && (
+			<>
+				<circle cx="8" cy="15" r="4" />
+				<path d="m11 12 8-8M16 7l2 2" />
+			</>
+		)
+	}
+	{
+		name === 'link' && (
+			<>
+				<path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.1 1" />
+				<path d="M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.1-1" />
+			</>
+		)
+	}
+</svg>
